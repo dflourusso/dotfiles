@@ -1,3 +1,7 @@
+call plug#begin()
+
+call plug#end()
+
 set hidden " allow to keep a file in memory while edit another
 
 set number " show line numbers
