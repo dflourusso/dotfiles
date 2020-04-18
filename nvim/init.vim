@@ -1,6 +1,8 @@
 call plug#begin()
-
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
+
+colorscheme dracula
 
 set hidden " allow to keep a file in memory while edit another
 
