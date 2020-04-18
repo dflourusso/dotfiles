@@ -1,6 +1,7 @@
 call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'terryma/vim-multiple-cursors'
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 colorscheme dracula
