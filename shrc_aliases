@@ -1,0 +1,16 @@
+alias gs='git status'
+unalias ga &> /dev/null
+ga() { git add -A $* && git status }
+unalias gc &> /dev/null
+gc() { noglob git commit -m "$*" && git status }
+alias gp="git push -v --progress --follow-tags"
+alias gu='git pull --rebase --autostash'
+alias gx='gitg'
+alias gui='gitg'
+alias gxx='git log --graph --color --all --decorate'
+alias gd='git d'
+alias gamend='git commit --amend'
+alias gamendm='git commit --amend -m' "$1"
+alias gclean='git clean -d -f'
+alias pathsize='du -h -d 1'
+alias count='find . -type f | wc -l'
