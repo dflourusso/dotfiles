@@ -1,0 +1,96 @@
+[user]
+  email = dflourusso@gmail.com
+  name = Daniel Fernando Lourusso
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vi
+  eol = lf
+  pager = less -F -X
+
+[color]
+  ui = true
+
+[color "status"]
+  updated = green
+  changed = yellow
+  untracked = blue
+  branch = red
+  nobranch = red reverse
+
+[alias]
+  # https://git.wiki.kernel.org/index.php/Aliases
+  # http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+  # https://github.com/evbogue/git-aliases/blob/master/bash_aliases
+  # https://github.com/michel-kraemer/gitaliases/blob/master/gitaliases.sh
+
+  s = status -s
+  c = commit -m
+  up = pull --rebase --autostash
+  # commit after merge
+  cm = commit --no-edit
+  # merge without commit
+  m = "!f() { git merge --no-ff --no-commit $@ && git status -s; }; f"
+  co = checkout
+  a = "!f() { git add -A $@ && git status -s; }; f"
+  d = diff --diff-filter=M --unified=0 --minimal --patience --no-prefix --no-renames --color-words
+  amend = commit --amend --no-edit
+  reset-clean     = "!git status && git reset --hard && git clean -f  && git status"
+  reset-clean-dir = "!git status && git reset --hard && git clean -fd && git status"
+  count = rev-list --count HEAD
+
+  uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+  unstage = reset HEAD              # remove files from index (tracking)
+  filelog = log -u                  # show changes to a file
+  todo = grep --line-number --word-regexp @TODO
+  aliases = "!git config -l | grep alias | cut -c 7-"
+
+  dev = checkout develop
+  master = checkout master
+
+  last = diff --unified=0 HEAD^
+
+  ls = log --all --date=short --format=format:'%C(bold yellow)%h %C(bold green)%ad %C(reset)%s %C(bold blue)[%an]%C(bold red)%d' --graph
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+
+  # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/#use_snapshot_stashes
+  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+  snapshots = !git stash list --grep snapshot
+
+  # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/#file_level_ignoring
+  ignore   = update-index --assume-unchanged
+  unignore = update-index --no-assume-unchanged
+  ignored  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+  # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/#them_and_us
+  ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+  theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+
+  #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
+  recent-branches = !git for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+
+  # aliases para flow com branchs
+  start-feature = "!f() { git checkout master && git up && git checkout -b feature/$@; }; f"
+  finish-feature = "!f() { git checkout master && git up && git checkout feature/$@ && git rebase master && git checkout master && git merge --no-ff feature/$@ -m 'Merge branch feature/'$@ && git branch -d feature/$@; }; f"
+  start-hotfix = "!f() { git checkout master && git up && git checkout -b hotfix/$@; }; f"
+  finish-hotfix = "!f() { git checkout master && git up && git checkout hotfix/$@ && git rebase master && git checkout master && git merge --no-ff hotfix/$@ -m 'Merge branch hotfix/'$@ && git branch -d hotfix/$@; }; f"
+  start-issue = "!f() { git checkout master && git up && git checkout -b issue/$@; }; f"
+  finish-issue = "!f() { git checkout master && git up && git checkout issue/$@ && git rebase master && git checkout master && git merge --no-ff issue/$@ -m 'Merge branch issue/'$@ && git branch -d issue/$@; }; f"
+  
+  
+  # Automatic creates a gitlab merge request to master and merge it when the pipeline succeeds
+  # Usage example: git pm origin feature/feature-name
+  pm = push -o merge_request.create -o merge_request.target=master -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch
+
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
+  # http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/#comparing_large_chunks_of_text
+  algorithm = patience
+
+[pull]
+  rebase = true
+[merge]
+  ff = false
