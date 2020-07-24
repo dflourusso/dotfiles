@@ -13,6 +13,12 @@ ln -s ~/projects/dotfiles/gitconfig ~/.gitconfig
 echo 'source ~/projects/dotfiles/shrc_aliases' >> ~/.zshrc
 ```
 
+## Link tmux conf
+
+```bash
+ln -s ~/projects/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+```
+
 ## Extras
 
 ### KDE
