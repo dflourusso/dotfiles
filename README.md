@@ -19,6 +19,12 @@ echo 'source ~/projects/dotfiles/shrc_aliases' >> ~/.zshrc
 ln -s ~/projects/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ```
 
+## Link vim conf
+
+```bash
+ln -s ~/projects/dotfiles/vimrc ~/.vimrc
+```
+
 ## Extras
 
 ### KDE
