@@ -16,7 +16,6 @@ set hidden " allow to keep a file in memory while edit another
 
 set number " show line numbers
 set relativenumber
-set termguicolors
 
 " set mouse=a " enable mouse
 
