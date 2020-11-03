@@ -8,6 +8,8 @@ call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 colorscheme dracula
@@ -28,3 +30,4 @@ set relativenumber
 let mapleader="\<space>"
 
 nnoremap <leader>; A;<esc>
+nnoremap <silent> <C-p> :GFiles<CR>
