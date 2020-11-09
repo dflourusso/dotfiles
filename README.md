@@ -17,6 +17,7 @@ echo 'source ~/projects/dotfiles/shrc_aliases' >> ~/.zshrc
 
 ```bash
 ln -s ~/projects/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+ln -s ~/projects/dotfiles/tmux/.tmate.conf ~/.tmate.conf
 ```
 
 ## Link vim conf
