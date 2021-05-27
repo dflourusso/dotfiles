@@ -28,14 +28,16 @@ ln -s ~/projects/dotfiles/vimrc ~/.vimrc
 
 ## Extras
 
-## [fasd](https://github.com/clvv/fasd)
+## FASD
 
-To get `z` autocomplete command
+> To get `z` autocomplete command
+
+[See the official docs](https://github.com/clvv/fasd)
 
 ```bash
 snap install fasd --beta
 
-# Then add `eval "$(fasd --init auto)"` into your ~/.zshrc
+# Then add fasd to plugins list (`plugins=(... fasd)"`) into your ~/.zshrc if using oh-my-zsh
 ```
 
 ### KDE
