@@ -28,6 +28,16 @@ ln -s ~/projects/dotfiles/vimrc ~/.vimrc
 
 ## Extras
 
+## [fasd](https://github.com/clvv/fasd)
+
+To get `z` autocomplete command
+
+```bash
+snap install fasd --beta
+
+# Then add `eval "$(fasd --init auto)"` into your ~/.zshrc
+```
+
 ### KDE
 
 Change keyboard speed instantly: `xset r rate 250 100`
