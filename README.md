@@ -35,7 +35,11 @@ ln -s ~/projects/dotfiles/vimrc ~/.vimrc
 [See the official docs](https://github.com/clvv/fasd)
 
 ```bash
+# Linux
 snap install fasd --beta
+
+# Mac OS
+brew install fasd
 
 # Then add fasd to plugins list (`plugins=(... fasd)"`) into your ~/.zshrc if using oh-my-zsh
 ```
