@@ -52,3 +52,11 @@ Make snaps to be visible in the application launcher
 ```bash
 cp /var/lib/snapd/desktop/applications/*.desktop ~/.local/share/applications/ 
 ```
+
+### Mac OS
+
+```bash
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 10
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
