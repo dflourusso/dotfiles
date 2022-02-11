@@ -61,6 +61,6 @@ cp /var/lib/snapd/desktop/applications/*.desktop ~/.local/share/applications/
 
 ```bash
 defaults write -g KeyRepeat -int 2
-defaults write -g InitialKeyRepeat -int 10
+defaults write -g InitialKeyRepeat -int 15
 defaults write -g ApplePressAndHoldEnabled -bool false
 ```
