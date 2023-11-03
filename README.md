@@ -1,10 +1,9 @@
 # Dotfiles
 
-
 ## Link gitconfig
 
 ```bash
-ln -s ~/projects/dotfiles/gitconfig ~/.gitconfig 
+ln -s ~/projects/dotfiles/gitconfig ~/.gitconfig
 ```
 
 ## Link shrc_aliases
@@ -26,7 +25,11 @@ ln -s ~/projects/dotfiles/tmux/.tmate.conf ~/.tmate.conf
 ln -s ~/projects/dotfiles/vimrc ~/.vimrc
 ```
 
-## Extras
+# Extras
+
+## GPG signature errors
+
+Try to add `export GPG_TTY=$(tty)` to `~/.zshrc`
 
 ## FASD
 
@@ -50,11 +53,12 @@ Change keyboard speed instantly: `xset r rate 250 100`
 
 Make snaps to be executable in command line
 
-  > Edit /etc/environment and add /snap/bin to the PATH
+> Edit /etc/environment and add /snap/bin to the PATH
 
 Make snaps to be visible in the application launcher
+
 ```bash
-cp /var/lib/snapd/desktop/applications/*.desktop ~/.local/share/applications/ 
+cp /var/lib/snapd/desktop/applications/*.desktop ~/.local/share/applications/
 ```
 
 ### Mac OS
